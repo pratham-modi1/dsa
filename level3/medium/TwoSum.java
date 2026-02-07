@@ -1,4 +1,4 @@
-package level3.medium;
+
 
 import java.util.Arrays;
 import java.util.HashMap;

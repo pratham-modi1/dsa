@@ -1,29 +1,26 @@
-//Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that
-//each unique element appears only once. The relative order of the elements should be kept the same.
-//Consider the number of unique elements in nums to be k​​​​​​​​​​​​​​. After removing duplicates, return the number          
-//of unique elements k.The first k elements of nums should contain the unique numbers in sorted order.
-//The remaining elements beyond index k - 1 can be ignored.
-import java.util.Arrays;
-
-public class RemoveDuplicates{
-    
-    public static void main(String args[]){
+// RemoveDuplicates.java
+class Solution {
+    public int removeDuplicates(int[] nums) {
         
-        int[] nums = {1,1,2,3,4,5,5,5,7,8,9};
+        if (nums.length == 0) {
+            return 0;
+        }
 
-            int i=0;
+        int test = nums[0];
+        int i = 1; // read pointer
+        int j = 1; // write pointer
 
-            for(int j=1; j<nums.length;j++){
+        while (i < nums.length) {
 
-                if(nums[j] != nums[i]){
-                    nums[i+1]=nums[j];
-                    i++;
-                }
-
+            if (nums[i] != test) {
+                nums[j] = nums[i];
+                j++;
             }
 
-            System.out.print(i+1 +  ", nums=");
-            System.out.println(Arrays.toString(nums));
-    
+            test = nums[i];
+            i++;
+        }
+
+        return j;
     }
 }

@@ -1,36 +1,30 @@
 import java.util.Arrays;
 
-public class RecursiveInsertionSort {
+public class Recursiveinsertionsort {
 
     public static void main(String[] args) {
-        int[] nums = {4, 3, 2, 1};
+        int[] arr = {4, 1, 3, 2};
 
-        insertionSort(nums, nums.length);
+        insertionsort(arr, 1);
 
-        System.out.println(Arrays.toString(nums));
+        System.out.println(Arrays.toString(arr));
     }
 
-    // Recursive insertion sort
-    static void insertionSort(int[] nums, int n) {
+    static void insertionsort(int[] arr, int n) {
 
-        // Base case: single element is already sorted
-        if (n <= 1) {
+        if (n >= arr.length) {
             return;
         }
 
-        // Sort first n-1 elements
-        insertionSort(nums, n - 1);
+        int i = n;
 
-        // Insert nth element into sorted part
-        int key = nums[n - 1];
-        int j = n - 2;
-
-        // Shift elements to make space for key
-        while (j >= 0 && nums[j] > key) {
-            nums[j + 1] = nums[j];
-            j--;
+        while (i > 0 && arr[i] < arr[i - 1]) {
+            int temp = arr[i];
+            arr[i] = arr[i - 1];
+            arr[i - 1] = temp;
+            i--;
         }
 
-        nums[j + 1] = key;
+        insertionsort(arr, n + 1);
     }
 }

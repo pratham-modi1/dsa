@@ -29,7 +29,7 @@ public class Leaders{
             }
 
         }
-        return list.reversed();   
-    }
+        return list;   //error hai idhar list.reversed()tha
+            }
 
 }
